@@ -4,12 +4,31 @@
 
 var turn = 1;
 var colourOfButton = "";
+var xOrO = "";
 $(document).ready(function(){
+  $(".playX").mouseenter(function(){
+    $(this).css("background-color", "red");								
+  });  
+  $(".playO").mouseenter(function(){
+    $(this).css("background-color", "blue");								
+  });    
+  $(".playX").mouseleave(function(){
+    $(this).css("background-color", "");					
+  });   	
+  $(".playO").mouseleave(function(){
+    $(this).css("background-color", "");					
+  });   	  
+  $(".playX").click(function(){
+	  xOrO = "X";
+  });
+  $(".playO").click(function(){
+	  xOrO = "O";
+  });  
   $(".square").mouseenter(function(){
-	if(turn % 2 == 1 && $(this).html() == ""){
+	if(xOrO == "X" && $(this).html() == ""){
       $(this).css("background-color", "red");					
     }
-    else if(turn % 2 == 0 && $(this).html() == ""){
+    else if(xOrO == "O" && $(this).html() == ""){
       $(this).css("background-color", "blue");					
     }  
   });  
@@ -20,12 +39,12 @@ $(document).ready(function(){
 	if(turn > 9){
 		return;
 	}
-	if(turn % 2 == 1 && $(this).html() == ""){
+	if(xOrO == "X" && $(this).html() == ""){
 		$(this).html("X");
         $(this).css("color", "red");
 		turn++;
     }
-    else if(turn % 2 == 0 && $(this).html() == ""){
+    else if(xOrO == "O" && $(this).html() == ""){
 		$(this).html("O");
         $(this).css("color", "blue");		
 		turn++;
@@ -63,27 +82,28 @@ $(document).ready(function(){
 		if (turn >= 10 && (winner != "X" && winner != "O")){
 			return "Draw";
 		}
+		return;
 	    
 	};
 	function displayResult(winner) {
+
 		if (winner == "X" || winner == "O" || winner == "Draw"){
-			if (winner == "X"){
+			if ((winner == "X" || winner == "O") && turn % 2 == 1){
 				colourOfButton = "red";
-		        $(".displayWinner").html("The winner is: " + winner);			
+			    $(".displayWinner").html("The winner is: Player 1");			
 			}
-			else if (winner == "O"){
+			else if ((winner == "X" || winner == "O") && turn % 2 == 0){
 				colourOfButton = "blue";				
-		        $(".displayWinner").html("The winner is: " + winner);											
+			    $(".displayWinner").html("The winner is: Player 2");			
 			}
-			else{
+			else if (winner == "Draw"){
 				colourOfButton = "green";								
-		        $(".displayWinner").html("It was a draw");							
+			    $(".displayWinner").html("It was a draw");							
 			}
 			$(".displayWinner").css("color", colourOfButton);	
 			$(".resetButton").css("background-color", colourOfButton);				
-			$(".resetButton").show();			
-	        turn = 10;
-	    }		
+		    turn = 10;				
+		}
 	};
   $(".resetButton").mouseenter(function(){
     $(this).css("background-color", "purple");	
@@ -98,6 +118,6 @@ $(document).ready(function(){
 	$(".displayWinner").html("");
 	colourOfButton = "";
     turn = 1;
+    xOrO = "";
   });	
-  
 });
