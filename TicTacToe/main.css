@@ -1,0 +1,63 @@
+.square {
+  position: relative;
+  left: -3px;
+  top: -3px;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 60px;
+  font-family: Courier New;
+}
+.bigSquare {
+  margin: auto;
+  position: relative;
+  width: 308px;
+  height: 308px;
+  background-color: black;
+}
+.title {
+  text-align: center;
+  font-size: 60px;
+  font-family: Arial;
+}
+.resetButton {
+   margin: auto;
+   margin-top: 40px; 
+   position: relative;
+   width: 308px;
+   height: 70px;	
+   text-align: center;
+   font-size: 60px;
+   font-family: Arial;
+}
+.displayWinner {
+   margin: auto;
+   margin-top: 40px; 
+   position: relative;
+   width: 650px;
+   height: 70px;	
+   text-align: center;
+   font-size: 60px;
+   font-family: Arial;
+}
+.playX {
+  margin: auto;
+  width:70px;
+  height:70px;  
+  margin-top: 20px; 
+  text-align: center;
+  font-size: 60px;
+  font-family: Courier New;	
+}
+.playO {
+  margin: auto;
+  margin-top: 20px; 
+  width:70px;
+  height:70px;  
+  text-align: center;
+  font-size: 60px;
+  font-family: Courier New;	
+}
