@@ -7,24 +7,29 @@ var colourOfButton = "";
 var xOrO = "";
 $(document).ready(function(){
   $(".playX").mouseenter(function(){
-    $(this).css("background-color", "red");								
-  });  
+    $(this).css("cursor", "pointer");				
+  });  	
   $(".playO").mouseenter(function(){
-    $(this).css("background-color", "blue");								
-  });    
+    $(this).css("cursor", "pointer");				
+  });  	  
   $(".playX").mouseleave(function(){
-    $(this).css("background-color", "");					
-  });   	
+    $(this).css("cursor", "default");				    				
+  });     
   $(".playO").mouseleave(function(){
-    $(this).css("background-color", "");					
-  });   	  
+    $(this).css("cursor", "default");				    				
+  });       
   $(".playX").click(function(){
-	  xOrO = "X";
+	xOrO = "X";
+    $(this).css("background-color", "red");		
+    $(".playO").css("background-color", "");							    							  
   });
   $(".playO").click(function(){
-	  xOrO = "O";
+	xOrO = "O";
+    $(this).css("background-color", "blue");	
+    $(".playX").css("background-color", "");							
   });  
   $(".square").mouseenter(function(){
+    $(this).css("cursor", "pointer");					  
 	if(xOrO == "X" && $(this).html() == ""){
       $(this).css("background-color", "red");					
     }
@@ -33,7 +38,8 @@ $(document).ready(function(){
     }  
   });  
   $(".square").mouseleave(function(){
-    $(this).css("background-color", "");					
+    $(this).css("background-color", "");	
+    $(this).css("cursor", "default");				    				    				
   });    
   $(".square").click(function(){
 	if(turn > 9){
@@ -42,11 +48,15 @@ $(document).ready(function(){
 	if(xOrO == "X" && $(this).html() == ""){
 		$(this).html("X");
         $(this).css("color", "red");
+        $(".playX").css("background-color", "");
+        xOrO = "";
 		turn++;
     }
     else if(xOrO == "O" && $(this).html() == ""){
 		$(this).html("O");
-        $(this).css("color", "blue");		
+        $(this).css("color", "blue");	
+        $(".playO").css("background-color", "");        	
+        xOrO = "";		
 		turn++;
     }  
     displayResult(whoWins());
