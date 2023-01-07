@@ -44,7 +44,8 @@
    font-family: Arial;
 }
 .playX {
-  margin: auto;
+  float: left;
+  margin-left:100px;
   width:70px;
   height:70px;  
   margin-top: 20px; 
@@ -53,7 +54,8 @@
   font-family: Courier New;	
 }
 .playO {
-  margin: auto;
+  float: left;
+  margin-left:50px;
   margin-top: 20px; 
   width:70px;
   height:70px;  
